@@ -1,0 +1,10 @@
+# Ignore all .pdf files
+*.pdf
+
+# Ignore all files in a data directory
+data/
+
+# Ignore specific data file types
+*.csv
+*.xlsx
+*.json
