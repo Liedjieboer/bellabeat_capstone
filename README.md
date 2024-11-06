@@ -18,29 +18,34 @@ Project To-Do List:
 
 ### Roadmap questions:
 1. What is the problem you are trying to solve?
+    We want to know how to market some of the Bellabeat products using trends from data of non-Bellabeat products.
 2. How can your insights drive business decisions?
+    We want to make smart, data-driven marketing decisions that will have a positive impact on sales and the people who use the products.
 
 ### Tasks:
-[ ] Identify the business task
-[ ] Consider key stakeholders
+[x] Identify the business task
+[x] Consider key stakeholders
 
 ### Deliverable:
-[ ] A clear statement of the business task
+[x] A clear statement of the business task
 
 ## Prepare
 
 ### Roadmap questions:
 1. Where is your data stored?
+    Data is securely stored on my laptop.
 2. How is the data organized? Is it in long or wide format?
+    The data consists of several csv files that show minute- and hour-level output for physical activity, heart rate, and sleep monitoring.
 3. Are there issues with bias or credibility in this data? Does your data ROCCC?
 4. How are you addressing licensing, privacy, security, and accessibility?
+    This dataset is in the public domain, so privacy, licensing and security are less of an issue. Individuals who contributed their data cannot be identified via the ID's.
 5. How did you verify the data’s integrity?
 6. How does it help you answer your question?
 7. Are there any problems with the data?
 
 ### Tasks:
-[ ] Download data and store appropriately.
-[ ] Identify how the data is organised.
+[x] Download data and store appropriately.
+[x] Identify how the data is organised.
 [ ] Sort and filter the data.
 [ ] Determine data credibility.
 
