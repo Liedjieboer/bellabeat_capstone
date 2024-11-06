@@ -2,7 +2,7 @@
 Capstone project for Google Data Analytics Certificate
 
 Project To-Do List:
-[ ] Ask
+[x] Ask
 [ ] Prepare
 [ ] Process
 [ ] Analyze
