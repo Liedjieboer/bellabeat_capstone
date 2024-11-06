@@ -1,0 +1,17 @@
+# src/pyproject.toml
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data_analyzer"
+version = "0.1.0"
+description = "A simple data analysis tool"
+authors = [
+    { name="Nico Marais" }
+]
+dependencies = [
+    "pandas",
+    "tabulate"
+]

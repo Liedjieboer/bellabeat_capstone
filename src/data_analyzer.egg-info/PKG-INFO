@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: data_analyzer
+Version: 0.1.0
+Summary: A simple data analysis tool
+Author: Nico Marais
+Requires-Dist: pandas
+Requires-Dist: tabulate
