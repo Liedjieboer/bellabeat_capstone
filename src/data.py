@@ -21,7 +21,7 @@ class Bellabeat:
             root_dir = Path.cwd()
 
         csv_path = root_dir / "data" / "csv"
-        print(f"CSV Path: {csv_path}")
+        # print(f"CSV Path: {csv_path}")
 
         file_names = [f for f in os.listdir(csv_path) if f.endswith(".csv")]
 
