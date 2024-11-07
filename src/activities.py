@@ -12,13 +12,34 @@ class Activities:
         # Assign an attribute ".data" to all new instances of Activities
         self.data = Bellabeat().get_data()
 
+    def clean_data(self):
+        """
+        Returns a clean dataframe with all datatypes as it should be and no NaNs
+        """
+
+        # Get data and assign it to df
+        df = Bellabeat().get_data()['Activity']
+
+        # Show information about df
+        print("Initial information:")
+        print(df.info())
+
+        # Check to see if ActivityDate column has the correct dtype and change it if not
+        if not pd.api.types.is_datetime64_any_dtype(df["ActivityDate"]):
+            df["ActivityDate"] = pd.to_datetime(df["ActivityDate"], errors="coerce")
+        print(df.dtypes) # Check dtype change was successful
+
+        return df
+
+    
+
     def get_activities_data(self):
         """
         Returns a clean DataFrame (without NaN), with the following columns:
-        ['order_id', 'wait_time', 'expected_wait_time', 'delay_vs_expected',
-        'order_status', 'dim_is_five_star', 'dim_is_one_star', 'review_score',
-        'number_of_products', 'number_of_sellers', 'price', 'freight_value',
-        'distance_seller_customer']
+        ['Id', 'ActivityDate', 'TotalSteps', 'TotalDistance',
+        'TrackerDistance', 'LoggedActivitiesDistance', 'VeryActiveDistance', 'ModeratelyActiveDistance',
+        'LightActiveDistance', 'SedentaryActiveDistance', 'VeryActiveMinutes', 'FairlyActiveMinutes',
+        'LightlyActiveMinutes', 'SedentaryMinutes', 'Calories']
         """
 
         df = Bellabeat().get_data()['Activity']
