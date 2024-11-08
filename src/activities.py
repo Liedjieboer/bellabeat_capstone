@@ -31,7 +31,7 @@ class Activities:
 
         return df
 
-    
+
 
     def get_activities_data(self):
         """
@@ -43,4 +43,6 @@ class Activities:
         """
 
         df = Bellabeat().get_data()['Activity']
+
+        
         return df
