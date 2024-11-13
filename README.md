@@ -3,11 +3,11 @@ Capstone project for Google Data Analytics Certificate
 
 Project To-Do List:
 [x] Ask
-[ ] Prepare
-[ ] Process
-[ ] Analyze
-[ ] Share
-[ ] Act
+[X] Prepare
+[X] Process
+[X] Analyze
+[X] Share
+[X] Act
 
 ## Ask
 
@@ -23,11 +23,11 @@ Project To-Do List:
     We want to make smart, data-driven marketing decisions that will have a positive impact on sales and the people who use the products.
 
 ### Tasks:
-[x] Identify the business task
-[x] Consider key stakeholders
+[X] Identify the business task
+[X] Consider key stakeholders
 
 ### Deliverable:
-[x] A clear statement of the business task
+[X] A clear statement of the business task
 
 ## Prepare
 
@@ -44,13 +44,13 @@ Project To-Do List:
 7. Are there any problems with the data?
 
 ### Tasks:
-[x] Download data and store appropriately.
-[x] Identify how the data is organised.
-[ ] Sort and filter the data.
-[ ] Determine data credibility.
+[X] Download data and store appropriately.
+[X] Identify how the data is organised.
+[X] Sort and filter the data.
+[X] Determine data credibility.
 
 ### Deliverable:
-[ ] A description of all data sources used
+[X] A description of all data sources used
 
 ## Process
 
@@ -62,13 +62,13 @@ Project To-Do List:
 5. Have you documented your cleaning process so you can review and share those results?
 
 ### Tasks:
-[ ] Check the data for errors.
-[ ] Choose your tools.
-[ ] Transform the data so you can work with it effectively.
-[ ] Document the cleaning process.
+[X] Check the data for errors.
+[X] Choose your tools.
+[X] Transform the data so you can work with it effectively.
+[X] Document the cleaning process.
 
 ### Deliverable:
-[ ] Documentation of any cleaning or manipulation of data
+[X] Documentation of any cleaning or manipulation of data
 
 ## Analyze
 
@@ -80,13 +80,13 @@ Project To-Do List:
 5. How will these insights help answer your business questions?
 
 ### Tasks:
-[ ] Aggregate your data so it’s useful and accessible.
-[ ] Organize and format your data.
-[ ] Perform calculations.
-[ ] Identify trends and relationships.
+[X] Aggregate your data so it’s useful and accessible.
+[X] Organize and format your data.
+[X] Perform calculations.
+[X] Identify trends and relationships.
 
 ### Deliverable:
-[ ] Analysis summary
+[X] Analysis summary
 
 ## Share
 
@@ -99,13 +99,13 @@ Project To-Do List:
 6. Is your presentation accessible to your audience?
 
 ### Tasks:
-[ ] Determine the best way to share your findings.
-[ ] Create effective data visualizations.
-[ ] Present your findings.
-[ ] Ensure your work is accessible.
+[X] Determine the best way to share your findings.
+[X] Create effective data visualizations.
+[X] Present your findings.
+[X] Ensure your work is accessible.
 
 ### Deliverable:
-[ ] Key findings with supporting visualizations
+[X] Key findings with supporting visualizations
 
 ## Act
 
