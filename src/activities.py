@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import re
 from data import Bellabeat
 
@@ -22,10 +21,10 @@ class Activities:
         df = Bellabeat().get_data()['Activity']
 
         # Show information about df
-        print("Initial information:")
-        # print(df.info())
-        print(f"Number of duplicate rows: {df.duplicated().sum()}")
-        print(f"Column names: {df.columns}")
+        # print("Initial information:")
+        # # print(df.info())
+        # print(f"Number of duplicate rows: {df.duplicated().sum()}")
+        # print(f"Column names: {df.columns}")
 
         # Check for duplicates and drop them if there are any
         if df.duplicated().sum() > 0:
@@ -34,7 +33,7 @@ class Activities:
         # Check to see if ActivityDate column has the correct dtype and change it if not
         if not pd.api.types.is_datetime64_any_dtype(df["ActivityDate"]):
             df["ActivityDate"] = pd.to_datetime(df["ActivityDate"], errors="coerce")
-        print(df.dtypes) # Check dtype change was successful
+        # print(df.dtypes) # Check dtype change was successful
 
         # Define a function to convert camelCase or PascalCase to snake_case
         def camel_to_snake(name):
@@ -43,10 +42,10 @@ class Activities:
 
         # Apply this function to all column names
         df.columns = [camel_to_snake(col) for col in df.columns]
-        print("Cleaned information:")
-        # print(df.info())
-        print(f"Number of duplicate rows: {df.duplicated().sum()}")
-        print(f"Column names: {df.columns}")
+        # print("Cleaned information:")
+        # # print(df.info())
+        # print(f"Number of duplicate rows: {df.duplicated().sum()}")
+        # print(f"Column names: {df.columns}")
 
         return df
 
@@ -57,15 +56,43 @@ class Activities:
 
         # Calculate activity_level for each user
         activity_level = df.groupby('id')['total_steps'].mean().reset_index()
-        activity_level = activity_level.rename(columns={'total_steps': 'activity_level'})
+        activity_level = activity_level.rename(columns={'total_steps': 'activity'})
 
         # Now, categorize user activity level
         bins = [0, 4999, 7499, 9999, float('inf')]
         labels = ['sedentary', 'slightly_active', 'fairly_active', 'very_active']
-        activity_level['activity_category'] = pd.cut(activity_level['activity_level'], bins=bins, labels=labels)
+        activity_level['activity_level'] = pd.cut(activity_level['activity'], bins=bins, labels=labels)
 
         # Merge the categorized activity level back into the original DataFrame
-        return df.merge(activity_level[['id', 'activity_category']], on='id', how='left')
+        return df.merge(activity_level[['id', 'activity_level']], on='id', how='left')
+
+    def get_activity_category(self):
+        df = Activities.clean_data(self)
+
+        # Calculate the mean activity metrics for each user
+        user_activity_mean = df.groupby('id').mean().reset_index()
+
+        # Define thresholds (adjust as needed for average values across days)
+        runner_distance_threshold = 3.0  # Mean very active distance threshold for runners
+        runner_minutes_threshold = 20    # Mean very active minutes threshold for runners
+        walker_distance_threshold = 2.0  # Mean moderately or light active distance threshold for walkers
+        walker_minutes_threshold = 20    # Mean fairly active minutes threshold for walkers
+
+        # Create a function to classify each user based on their mean activity
+        def classify_user(row):
+            if row['very_active_distance'] >= runner_distance_threshold and row['very_active_minutes'] >= runner_minutes_threshold:
+                return 'runner'
+            elif (row['moderately_active_distance'] >= walker_distance_threshold or
+                row['light_active_distance'] >= walker_distance_threshold) and row['fairly_active_minutes'] >= walker_minutes_threshold:
+                return 'walker'
+            else:
+                return 'non-exerciser'
+
+        # Apply the classification function to each user in the grouped data
+        user_activity_mean['activity_type'] = user_activity_mean.apply(classify_user, axis=1)
+
+        # Step 5: Merge the classification back into the original DataFrame if desired
+        return user_activity_mean
 
     def get_activities_data(self):
         """
@@ -76,14 +103,9 @@ class Activities:
         'light_active_distance', 'sedentary_active_distance',
         'very_active_minutes', 'fairly_active_minutes',
         'lightly_active_minutes', 'sedentary_minutes', 'calories',
-        'activity_category']
+        'activity_level', 'activity_type']
         """
-
-
 
         df = Activities().get_activity_level()
 
-
-
-
-        return df
+        return df.merge(Activities.get_activity_category(self)[['id', 'activity_type']], on='id', how='left')
