@@ -116,9 +116,9 @@ Project To-Do List:
 4. Is there additional data you could use to expand on your findings?
 
 ### Tasks:
-[ ] Create my portfolio.
-[ ] Add my case study.
+[X] Create my portfolio.
+[X] Add my case study.
 [ ] Practice presenting my case study to a friend or family member.
 
 ### Deliverable:
-[ ] Top high-level insights based on my analysis
+[X] Top high-level insights based on my analysis
