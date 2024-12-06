@@ -20,12 +20,6 @@ class Activities:
         # Get data and assign it to df
         df = Bellabeat().get_data()['Activity']
 
-        # Show information about df
-        # print("Initial information:")
-        # # print(df.info())
-        # print(f"Number of duplicate rows: {df.duplicated().sum()}")
-        # print(f"Column names: {df.columns}")
-
         # Check for duplicates and drop them if there are any
         if df.duplicated().sum() > 0:
             df.drop_duplicates(keep="first", inplace=True)
